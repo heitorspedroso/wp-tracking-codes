@@ -4,7 +4,7 @@ Donate link: https://github.com/heitorspedroso/
 Tags: tracking codes, analytics ua, pixel code, remarketing tag
 Requires at least: 4.0
 Tested up to: 4.5
-Stable tag: 2.11.3
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,31 +36,35 @@ Compatível com a versão 4.5 Wordpress
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= What is the plugin license? =
 
-An answer to that question.
+* This plugin is released under a GPL license.
 
-= What about foo bar? =
+= What is needed to use this plugin? =
 
-Answer to foo bar dilemma.
+* Wordpress 4.5 ou superior
+
+
+### FAQ em Português: ###
+
+= Qual é a licença do plugin? =
+
+Este plugin esta licenciado como GPL.
+
+= O que eu preciso para utilizar este plugin? =
+
+* Wordpress 4.5 ou superior
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+1. Configurações do plugin.
 
 == Changelog ==
 
-= 1.0 =
-* A change since the previous version.
-* Another change.
+= 1.0 - 04/07/16 =
+* Primeira versão estável
 
 == Upgrade Notice ==
 
-= 1.0 =
-Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
-
-`<?php code(); // goes in backticks ?>`
+= 1.0 - 04/07/16 =
+* Primeira versão estável
