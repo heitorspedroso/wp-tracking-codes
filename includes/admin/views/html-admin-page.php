@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<h3 class="hndle"><span>About this Plugin:</span></h3>
 						<div class="inside">
 							<a class="sm_button sm_pluginHome" href="https://github.com/heitorspedroso/wp-tracking-codes">Repositório GitHub</a><br>
-							<a class="sm_button sm_pluginHome" href="#">Plugin Wordpress</a>
+							<a class="sm_button sm_pluginHome" href="https://br.wordpress.org/plugins/wp-tracking-codes">Plugin Wordpress</a>
 						</div>
 					</div>
 				</div>
