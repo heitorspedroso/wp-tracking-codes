@@ -37,9 +37,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<h3 class="hndle"><span>Your Tracking Codes</span></h3>
 							<div class="inside">
 								<?php //echo $options = get_option( 'tracking_analytics' ); ?>
-								<?php settings_fields( 'reading' );	//pass slug name of page, also referred
+								<?php settings_fields( 'wp-tracking-codes' );	//pass slug name of page, also referred
 																												//to in Settings API as option group name
-								do_settings_sections( 'reading' ); 	//pass slug name of page
+								do_settings_sections( 'wp-tracking-codes' ); 	//pass slug name of page
 								submit_button();
 								?>
 							</div>

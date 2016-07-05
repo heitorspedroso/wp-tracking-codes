@@ -59,7 +59,7 @@ class RegisterCodes extends Wp_Tracking_Codes{
       		'tracking_section',
       		'',
           array( $this, 'tracking_section_callback_function' ),
-      		'reading'
+      		'wp-tracking-codes'
       	);
        	// Add the field with the names and function to use for our new
        	// settings, put it in our new section
@@ -67,27 +67,27 @@ class RegisterCodes extends Wp_Tracking_Codes{
       		'tracking_analytics',
       		'Google Analytics UA',
       		array( $this, 'tracking_analytics_callback_function' ),
-      		'reading',
+      		'wp-tracking-codes',
       		'tracking_section'
       	);
         add_settings_field(
       		'tracking_analytics_remarketing',
       		'Google Remarketing Conversion ID',
       		array( $this, 'tracking_analytics_remarketing_callback_function' ),
-      		'reading',
+      		'wp-tracking-codes',
       		'tracking_section'
       	);
         add_settings_field(
       		'tracking_facebook_pixel_code',
       		'Facebook Pixel ID',
       		array( $this, 'tracking_facebook_pixel_code_callback_function' ),
-      		'reading',
+      		'wp-tracking-codes',
       		'tracking_section'
       	);
         // Register our setting so that $_POST handling is done for us and
         // our callback function just has to echo the <input>
         register_setting(
-            'reading', // Option group
+            'wp-tracking-codes', // Option group
             'tracking_option', // Option name
             array( $this, 'sanitize' ) // Sanitize
         );
