@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Wp Tracking Codes
-Plugin URI:  http://URI_Of_Page_Describing_Plugin_and_Updates
+Plugin URI:  https://br.wordpress.org/plugins/wp-tracking-codes/
 Description: Centralize os códigos de acompanhamento em apenas um lugar. Suporte: Google Analytics, Google Adwords Remarketing, Facebook Pixel Code
-Version:     1.0
+Version:     1.0.1
 Author:      Heitor Pedroso
 Author URI:  https://github.com/heitorspedroso
 License:     GPL2
@@ -22,7 +22,7 @@ if(!class_exists('Wp_Tracking_Codes')):
      *
      * @var string
      */
-    const VERSION = '1.0';
+    const VERSION = '1.0.1';
     /**
      * Instance of this class.
      *
@@ -45,6 +45,9 @@ if(!class_exists('Wp_Tracking_Codes')):
       add_action( 'wp_footer',  array( $this, 'hook_analytics_remarketing' ) );
       //Load Tracking Facebook ID
       add_action( 'wp_head',  array( $this, 'hook_facebook_pixel_code' ) );
+      //Load Tracking Google Tag Manager after Body
+      add_filter('template_include', array( $this, 'custom_include' ),0 );
+      add_filter('shutdown', array( $this, 'hook_google_tag_manager_body' ),0);
     }
     /**
      * Return an instance of this class.
@@ -167,6 +170,33 @@ if(!class_exists('Wp_Tracking_Codes')):
             /></noscript>
             <!-- End Facebook Pixel Code -->
             ";
+        endif;
+    }
+
+    public function custom_include($template) {
+            ob_start();
+            return $template;
+    }
+    public function hook_google_tag_manager_body($classes){
+        $this->options = get_option( 'tracking_option' );
+        if( empty( $this->options['tracking_option']['google_tag_manager'] ) && !empty( $this->options['google_tag_manager'] ) )
+        if($google_tag_manager = $this->options['google_tag_manager']):
+            $content = ob_get_clean();
+            $code_tag = "
+              <!-- Google Tag Manager -->
+              <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','$google_tag_manager');</script>
+              <!-- End Google Tag Manager -->
+              <!-- Google Tag Manager (noscript) -->
+              <noscript><iframe src='https://www.googletagmanager.com/ns.html?id='.$google_tag_manager.''
+              height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
+              <!-- End Google Tag Manager (noscript) -->
+            ";
+            $content = preg_replace('#<body([^>]*)>#i',"<body$1>{$code_tag}",$content);
+            echo $content;
         endif;
     }
   }

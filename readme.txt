@@ -3,8 +3,8 @@ Contributors: Heitor_tito
 Donate link: https://github.com/heitorspedroso/
 Tags: tracking codes, analytics ua, pixel code, remarketing tag
 Requires at least: 4.0
-Tested up to: 4.5
-Stable tag: 1.0.0
+Tested up to: 4.6.1
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,7 +24,7 @@ Centralize os códigos de acompanhamento em apenas um lugar. Suporte: Google Ana
 
 = Compatibilidade =
 
-Compatível com a versão 4.5 Wordpress
+Compatível com a versão 4.6.1 Wordpress
 
 
 == Installation ==
@@ -64,7 +64,13 @@ Este plugin esta licenciado como GPL.
 = 1.0 - 04/07/16 =
 * Primeira versão estável
 
+= 1.0.1 - 25/10/16 =
+* Include Tag Manager and Link Help Me
+
 == Upgrade Notice ==
 
 = 1.0 - 04/07/16 =
 * Primeira versão estável
+
+= 1.0.1 - 25/10/16 =
+* Include Tag Manager and Link Help Me

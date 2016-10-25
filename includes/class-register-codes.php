@@ -84,6 +84,13 @@ class RegisterCodes extends Wp_Tracking_Codes{
       		'wp-tracking-codes',
       		'tracking_section'
       	);
+        add_settings_field(
+      		'tracking_google_tag_manager',
+      		'Google Tag Manager ID',
+      		array( $this, 'tracking_google_tag_manager_callback_function' ),
+      		'wp-tracking-codes',
+      		'tracking_section'
+      	);
         // Register our setting so that $_POST handling is done for us and
         // our callback function just has to echo the <input>
         register_setting(
@@ -106,8 +113,10 @@ class RegisterCodes extends Wp_Tracking_Codes{
             $new_input['analytics'] = sanitize_text_field( $input['analytics'] );
         if( isset( $input['analytics_remarketing'] ) )
             $new_input['analytics_remarketing'] = sanitize_text_field( $input['analytics_remarketing'] );
-            if( isset( $input['facebook_pixel_code'] ) )
-                $new_input['facebook_pixel_code'] = sanitize_text_field( $input['facebook_pixel_code'] );
+        if( isset( $input['facebook_pixel_code'] ) )
+            $new_input['facebook_pixel_code'] = sanitize_text_field( $input['facebook_pixel_code'] );
+        if( isset( $input['google_tag_manager'] ) )
+            $new_input['google_tag_manager'] = sanitize_text_field( $input['google_tag_manager'] );
         return $new_input;
     }
     /**
@@ -124,7 +133,7 @@ class RegisterCodes extends Wp_Tracking_Codes{
     {
       printf(
             '<input type="text" id="analytics" name="tracking_option[analytics]"/ value="%s">
-             <p class="description">Example: UA-XXXXXXXX-X</p>',
+             <p class="description">Example: UA-XXXXXXXX-X - <a href="https://support.google.com/analytics/answer/1032385" target="_blank">Help me</a></p>',
             isset( $this->options['analytics'] ) ? esc_attr( $this->options['analytics']) : ''
         );
     }
@@ -132,7 +141,7 @@ class RegisterCodes extends Wp_Tracking_Codes{
     {
       printf(
             '<input type="text" id="analytics_remarketing" name="tracking_option[analytics_remarketing]"/ value="%s">
-             <p class="description">Example: 123456789</p>',
+             <p class="description">Example: 123456789 - <a href="https://support.google.com/tagmanager/answer/6105160?hl=en&ref_topic=6334091" target="_blank">Help me</a></p>',
             isset( $this->options['analytics_remarketing'] ) ? esc_attr( $this->options['analytics_remarketing']) : ''
         );
     }
@@ -140,8 +149,16 @@ class RegisterCodes extends Wp_Tracking_Codes{
     {
       printf(
             '<input type="text" id="facebook_pixel_code" name="tracking_option[facebook_pixel_code]"/ value="%s">
-             <p class="description">Example: 1234567890</p>',
+             <p class="description">Example: 1234567890 - <a href="https://www.facebook.com/business/help/742478679120153/?ref=u2u" target="_blank">Help me</a></p>',
             isset( $this->options['facebook_pixel_code'] ) ? esc_attr( $this->options['facebook_pixel_code']) : ''
+        );
+    }
+    public function tracking_google_tag_manager_callback_function()
+    {
+      printf(
+            '<input type="text" id="google_tag_manager" name="tracking_option[google_tag_manager]"/ value="%s">
+             <p class="description">Example: GTM-XXXXXX - <a href="https://support.google.com/tagmanager/answer/6103696" target="_blanl">Help me</a></p>',
+            isset( $this->options['google_tag_manager'] ) ? esc_attr( $this->options['google_tag_manager']) : ''
         );
     }
 }
