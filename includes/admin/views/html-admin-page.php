@@ -24,7 +24,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<h3 class="hndle"><span>About this Plugin:</span></h3>
 						<div class="inside">
 							<a class="sm_button sm_pluginHome" target="_blank" href="https://github.com/heitorspedroso/wp-tracking-codes">Contribute in repository GitHub</a><br>
-							<a class="sm_button sm_pluginHome" target="_blank" href="https://br.wordpress.org/plugins/wp-tracking-codes">Wordpress Plugin</a>
+							<a class="sm_button sm_pluginHome" target="_blank" href="https://br.wordpress.org/plugins/wp-tracking-codes">Wordpress Plugin</a><br><br>
+							<a class="button activate-now button-primary" target="_blank" href="https://wordpress.org/support/plugin/wp-tracking-codes/reviews/" style="font-size:18px;">
+								Send Your Review
+							</a>
 						</div>
 					</div>
 				</div>
