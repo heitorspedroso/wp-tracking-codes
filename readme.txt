@@ -4,7 +4,7 @@ Donate link: https://github.com/heitorspedroso/
 Tags: tracking codes, analytics ua, pixel code, remarketing tag
 Requires at least: 4.0
 Tested up to: 4.9.4
-Stable tag: 1.0.4
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -76,6 +76,9 @@ Este plugin esta licenciado como GPL.
 = 1.0.4 - 19/02/18 =
 * Version 1.0.4 Stable
 
+= 1.1.0 - 01/05/18 =
+* Version 1.1.0 GTM Validity
+
 == Upgrade Notice ==
 
 = 1.0 - 04/07/16 =
@@ -92,3 +95,6 @@ Este plugin esta licenciado como GPL.
 
 = 1.0.4 - 19/02/18 =
 * Version 1.0.4 Stable
+
+= 1.1.0 - 01/05/18 =
+* Version 1.1.0 GTM Validity
