@@ -2,9 +2,9 @@
 Contributors: Heitor_tito
 Donate link: https://github.com/heitorspedroso/
 Tags: tracking codes, analytics ua, pixel code, remarketing tag
-Requires at least: 4.0
-Tested up to: 4.9.4
-Stable tag: 1.1.0
+Requires at least: 5.0
+Tested up to: 5.2.2
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,3 +98,6 @@ Este plugin esta licenciado como GPL.
 
 = 1.1.0 - 01/05/18 =
 * Version 1.1.0 GTM Validity
+
+= 1.2.0 - 26/06/19 =
+* Version 1.2.0 Wordpress 5.0 compatibility
