@@ -2,116 +2,117 @@
 /*
 Plugin Name: Wp Tracking Codes
 Plugin URI:  https://br.wordpress.org/plugins/wp-tracking-codes/
-Description: Centralize os códigos de acompanhamento em apenas um lugar. Suporte: Google Analytics, Google Adwords Remarketing, Facebook Pixel Code
-Version:     1.2.0
+Description: Centralize os códigos de acompanhamento em apenas um lugar. Suporte: Google Analytics, Google Adwords Remarketing, Facebook Pixel Code, Google Tag Manager, DataLayer Google Tag Manager for Woocommerce
+Version:     1.3.0
 Author:      Heitor Pedroso
-Author URI:  https://github.com/heitorspedroso
+Author URI:  https://profiles.wordpress.org/heitor_tito
 License:     GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Domain Path: /languages
 Text Domain: wp-tracking-codes
 */
 if(!defined('ABSPATH')){
-  exit;
+    exit;
 }
 
 if(!class_exists('Wp_Tracking_Codes')):
-  class Wp_Tracking_Codes {
-    /**
-     * Plugin version.
-     *
-     * @var string
-     */
-    const VERSION = '1.2.0';
-    /**
-     * Instance of this class.
-     *
-     * @var object
-     */
-    protected static $instance = null;
-    /**
-     * Initialize the plugin public actions.
-     */
-    private function __construct() {
-      // Load the instalation hook
-      register_activation_hook( __FILE__, 'wp_tracking_codes_install' );
-      // Load plugin text domain.
-      add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
-      //Load includes
-      $this->includes();
-      //Load Tracking Analytics
-      add_action( 'wp_head',  array( $this, 'hook_analytics' ) );
-      //Load Tracking Analytics Remarketing
-      add_action( 'wp_footer',  array( $this, 'hook_analytics_remarketing' ) );
-      //Load Tracking Facebook ID
-      add_action( 'wp_head',  array( $this, 'hook_facebook_pixel_code' ) );
-      //Load Tracking Google Tag Manager in Head and after Body
-      add_action('wp_head', array($this, 'hook_google_tag_manager_head'));
-      add_filter('template_include', array( $this, 'custom_include' ),0 );
-      add_filter('shutdown', array( $this, 'hook_google_tag_manager_body' ),0);
-    }
-    /**
-     * Return an instance of this class.
-     *
-     * @return object A single instance of this class.
-     */
-    public static function get_instance() {
-      // If the single instance hasn't been set, set it now.
-      if ( null == self::$instance ) {
-        self::$instance = new self;
-      }
+    class Wp_Tracking_Codes {
+        /**
+         * Plugin version.
+         *
+         * @var string
+         */
+        const VERSION = '1.3.0';
+        /**
+         * Instance of this class.
+         *
+         * @var object
+         */
+        protected static $instance = null;
+        /**
+         * Initialize the plugin public actions.
+         */
+        private function __construct() {
+            // Load the instalation hook
+            register_activation_hook( __FILE__, 'wp_tracking_codes_install' );
+            // Load plugin text domain.
+            add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
+            //Load includes
+            $this->includes();
+            //Load Tracking Analytics
+            add_action( 'wp_head',  array( $this, 'hook_analytics' ) );
+            //Load Tracking Analytics Remarketing
+            add_action( 'wp_footer',  array( $this, 'hook_analytics_remarketing' ) );
+            //Load Tracking Facebook ID
+            add_action( 'wp_head',  array( $this, 'hook_facebook_pixel_code' ) );
+            //Load Tracking Google Tag Manager in Head and after Body
+            add_action('wp_head', array($this, 'hook_google_tag_manager_head'));
+            add_filter('template_include', array( $this, 'custom_include' ),0 );
+            add_filter('shutdown', array( $this, 'hook_google_tag_manager_body' ),0);
+        }
+        /**
+         * Return an instance of this class.
+         *
+         * @return object A single instance of this class.
+         */
+        public static function get_instance() {
+            // If the single instance hasn't been set, set it now.
+            if ( null == self::$instance ) {
+                self::$instance = new self;
+            }
 
-      return self::$instance;
-    }
+            return self::$instance;
+        }
 
-    /**
-     * Get templates path.
-     *
-     * @return string
-     */
-    public static function get_templates_path() {
-      return plugin_dir_path( __FILE__ ) . 'templates/';
-    }
+        /**
+         * Get templates path.
+         *
+         * @return string
+         */
+        public static function get_templates_path() {
+            return plugin_dir_path( __FILE__ ) . 'templates/';
+        }
 
-    /**
-     * Load the plugin text domain for translation.
-     */
-    public function load_plugin_textdomain() {
-      load_plugin_textdomain( 'wp-tracking-codes', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-    }
+        /**
+         * Load the plugin text domain for translation.
+         */
+        public function load_plugin_textdomain() {
+            load_plugin_textdomain( 'wp-tracking-codes', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+        }
 
-    /**
-      * Instalation Plugin
-    */
-    public function wp_tracking_codes_install() {
-        // Trigger our function that registers the custom post type
-        pluginprefix_setup_post_types();
-        // Clear the permalinks after the post type has been registered
-        flush_rewrite_rules();
-    }
-    /**
-     * Includes
-     */
-    private function includes() {
-      include_once 'includes/class-register-codes.php';
-    }
-    /**
-     * Debug
-    */
-    public function log_me($message) {
-      if (WP_DEBUG === true) {
-          if (is_array($message) || is_object($message)) {
-              error_log(print_r($message, true));
-          } else {
-              error_log($message);
-          }
-      }
-    }
-    public function hook_analytics(){
-        $this->options = get_option( 'tracking_option' );
-        if( empty( $this->options['tracking_option']['analytics'] ) && !empty( $this->options['analytics'] ) )
-        if($analytics = $this->options['analytics']):
-            echo "
+        /**
+         * Instalation Plugin
+         */
+        public function wp_tracking_codes_install() {
+            // Trigger our function that registers the custom post type
+            pluginprefix_setup_post_types();
+            // Clear the permalinks after the post type has been registered
+            flush_rewrite_rules();
+        }
+        /**
+         * Includes
+         */
+        private function includes() {
+            include_once 'includes/class-register-codes.php';
+            include_once 'includes/class-render-data-layer-gtm.php';
+        }
+        /**
+         * Debug
+         */
+        public function log_me($message) {
+            if (WP_DEBUG === true) {
+                if (is_array($message) || is_object($message)) {
+                    error_log(print_r($message, true));
+                } else {
+                    error_log($message);
+                }
+            }
+        }
+        public function hook_analytics(){
+            $this->options = get_option( 'tracking_option' );
+            if( empty( $this->options['tracking_option']['analytics'] ) && !empty( $this->options['analytics'] ) )
+                if($analytics = $this->options['analytics']):
+                    echo "
             <!-- Google Analytics Tag -->
             <script>
               (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -125,13 +126,13 @@ if(!class_exists('Wp_Tracking_Codes')):
             </script>
             <!-- Google Analytics Tag -->
             ";
-        endif;
-    }
-    public function hook_analytics_remarketing(){
-        $this->options = get_option( 'tracking_option' );
-        if( empty( $this->options['tracking_option']['analytics_remarketing'] ) && !empty( $this->options['analytics_remarketing'] ) )
-        if($analytics_remarketing = $this->options['analytics_remarketing']):
-            echo '
+                endif;
+        }
+        public function hook_analytics_remarketing(){
+            $this->options = get_option( 'tracking_option' );
+            if( empty( $this->options['tracking_option']['analytics_remarketing'] ) && !empty( $this->options['analytics_remarketing'] ) )
+                if($analytics_remarketing = $this->options['analytics_remarketing']):
+                    echo '
             <!-- Google Remarketing Tag -->
             <script type="text/javascript">
             /* <![CDATA[ */
@@ -149,13 +150,13 @@ if(!class_exists('Wp_Tracking_Codes')):
             </noscript>
             <!-- Google Remarketing Tag -->
             ';
-        endif;
-    }
-    public function hook_facebook_pixel_code(){
-        $this->options = get_option( 'tracking_option' );
-        if( empty( $this->options['tracking_option']['facebook_pixel_code'] ) && !empty( $this->options['facebook_pixel_code'] ) )
-        if($facebook_pixel_code = $this->options['facebook_pixel_code']):
-            echo "
+                endif;
+        }
+        public function hook_facebook_pixel_code(){
+            $this->options = get_option( 'tracking_option' );
+            if( empty( $this->options['tracking_option']['facebook_pixel_code'] ) && !empty( $this->options['facebook_pixel_code'] ) )
+                if($facebook_pixel_code = $this->options['facebook_pixel_code']):
+                    echo "
             <!-- Facebook Pixel Code -->
             <script>
             !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -171,19 +172,19 @@ if(!class_exists('Wp_Tracking_Codes')):
             /></noscript>
             <!-- End Facebook Pixel Code -->
             ";
-        endif;
-    }
+                endif;
+        }
 
-    public function custom_include($template) {
+        public function custom_include($template) {
             ob_start();
             return $template;
-    }
+        }
 
-    public function hook_google_tag_manager_head(){
-      $this->options = get_option('tracking_option');
-      if (empty($this->options['tracking_option']['google_tag_manager']) && !empty($this->options['google_tag_manager']))
-        if ($google_tag_manager = $this->options['google_tag_manager']) :
-          echo "
+        public function hook_google_tag_manager_head(){
+            $this->options = get_option('tracking_option');
+            if (empty($this->options['tracking_option']['google_tag_manager']) && !empty($this->options['google_tag_manager']))
+                if ($google_tag_manager = $this->options['google_tag_manager']) :
+                    echo "
                 <!-- Google Tag Manager -->
                 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -192,25 +193,25 @@ if(!class_exists('Wp_Tracking_Codes')):
                 })(window,document,'script','dataLayer','$google_tag_manager');</script>
                 <!-- End Google Tag Manager -->
                 ";
-        endif;
-    }
-    
-    public function hook_google_tag_manager_body($classes){
-        $this->options = get_option( 'tracking_option' );
-        if( empty( $this->options['tracking_option']['google_tag_manager'] ) && !empty( $this->options['google_tag_manager'] ) )
-        if($google_tag_manager = $this->options['google_tag_manager']):
-            $content = ob_get_clean();
-            $code_tag = "
+                endif;
+        }
+
+        public function hook_google_tag_manager_body($classes){
+            $this->options = get_option( 'tracking_option' );
+            if( empty( $this->options['tracking_option']['google_tag_manager'] ) && !empty( $this->options['google_tag_manager'] ) )
+                if($google_tag_manager = $this->options['google_tag_manager']):
+                    $content = ob_get_clean();
+                    $code_tag = "
               <!-- Google Tag Manager (noscript) -->
               <noscript><iframe src='https://www.googletagmanager.com/ns.html?id=$google_tag_manager'
               height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
               <!-- End Google Tag Manager (noscript) -->
             ";
-            $content = preg_replace('#<body([^>]*)>#i',"<body$1>{$code_tag}",$content);
-            echo $content;
-        endif;
+                    $content = preg_replace('#<body([^>]*)>#i',"<body$1>{$code_tag}",$content);
+                    echo $content;
+                endif;
+        }
     }
-  }
-add_action( 'plugins_loaded', array( 'Wp_Tracking_Codes', 'get_instance' ) );
+    add_action( 'plugins_loaded', array( 'Wp_Tracking_Codes', 'get_instance' ) );
 endif;
 //register_deactivation_hook ( __FILE__ , 'pluginprefix_function_to_run'  );

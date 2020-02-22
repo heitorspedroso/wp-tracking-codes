@@ -1,18 +1,18 @@
 === Wp Tracking Codes ===
 Contributors: Heitor_tito
-Donate link: https://github.com/heitorspedroso/
-Tags: tracking codes, analytics ua, pixel code, remarketing tag
+Donate link: https://profiles.wordpress.org/heitor_tito
+Tags: tracking codes, analytics ua, pixel code, remarketing tag, datalayer, google tag manager, analytics, adwords, woocommerce
 Requires at least: 5.0
-Tested up to: 5.2.2
-Stable tag: 1.2.0
+Tested up to: 5.3.2
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-The tracking codes in one place. Support: Google Analytics, Google Adwords Remarketing, Google Tag Manager, Facebook Pixel Code
+The tracking codes in one place. Support: Google Analytics, Google Adwords Remarketing, Google Tag Manager, DataLayer Google Tag Manager for Woocommerce, Facebook Pixel Code
 
 == Description ==
 
-The tracking codes in one place. Support: Google Analytics, Google Adwords Remarketing, Google Tag Manager, Facebook Pixel Code
+The tracking codes in one place. Support: Google Analytics, Google Adwords Remarketing, Google Tag Manager, DataLayer Google Tag Manager for Woocommerce, Facebook Pixel Code
 
 = Contribute =
 
@@ -20,11 +20,11 @@ You can contribute to the source code in our [GitHub](https://github.com/heitors
 
 ### Descrição em Português: ###
 
-Centralize os códigos de acompanhamento em apenas um lugar. Suporte: Google Analytics, Google Adwords Remarketing, Google Tag Manager, Facebook Pixel Code
+Centralize os códigos de acompanhamento em apenas um lugar. Suporte: Google Analytics, Google Adwords Remarketing, Google Tag Manager, DataLayer Google Tag Manager for Woocommerce, Facebook Pixel Code
 
 = Compatibilidade =
 
-Compatível com a versão 4.9.4 Wordpress
+Compatível com a versão 5.3.2 Wordpress
 
 
 == Installation ==
@@ -42,7 +42,7 @@ Compatível com a versão 4.9.4 Wordpress
 
 = What is needed to use this plugin? =
 
-* Wordpress 4.5 ou superior
+* Wordpress 5.0 ou superior
 
 
 ### FAQ em Português: ###
@@ -53,7 +53,7 @@ Este plugin esta licenciado como GPL.
 
 = O que eu preciso para utilizar este plugin? =
 
-* Wordpress 4.5 ou superior
+* Wordpress 5.0 ou superior
 
 == Screenshots ==
 
@@ -79,6 +79,12 @@ Este plugin esta licenciado como GPL.
 = 1.1.0 - 01/05/18 =
 * Version 1.1.0 GTM Validity
 
+= 1.2.0 - 26/06/19 =
+* Version 1.2.0 Wordpress 5.0 compatibility
+
+= 1.3.0 - 21/02/20 =
+* Version 1.3.0 Support DataLayer Standard Google Tag Manager for Woocommerce
+
 == Upgrade Notice ==
 
 = 1.0 - 04/07/16 =
@@ -101,3 +107,6 @@ Este plugin esta licenciado como GPL.
 
 = 1.2.0 - 26/06/19 =
 * Version 1.2.0 Wordpress 5.0 compatibility
+
+= 1.3.0 - 21/02/20 =
+* Version 1.3.0 Support DataLayer Standard Google Tag Manager for Woocommerce
