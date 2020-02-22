@@ -57,7 +57,9 @@ Este plugin esta licenciado como GPL.
 
 == Screenshots ==
 
-1. Configurações do plugin.
+1. Configurations screen plugin.
+2. Example GA and GTM activated.
+3. Google Tag Manager receiving DataLayer on purchase Store Woocomerce.
 
 == Changelog ==
 

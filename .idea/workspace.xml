@@ -20,15 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2114d484-7c31-4b63-a075-260e31b8684c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/includes/class-render-data-layer-gtm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/admin/views/html-admin-page.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/admin/views/html-admin-page.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/class-register-codes.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/class-register-codes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshot-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/screenshot-1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-tracking-codes.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-tracking-codes.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +63,7 @@
       <updated>1561578663821</updated>
       <workItem from="1561578665077" duration="2119000" />
       <workItem from="1571078519061" duration="46000" />
-      <workItem from="1582334305142" duration="1131000" />
+      <workItem from="1582334305142" duration="1392000" />
     </task>
     <servers />
   </component>
