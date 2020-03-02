@@ -19,7 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2114d484-7c31-4b63-a075-260e31b8684c" name="Default Changelist" comment="" />
+    <list default="true" id="2114d484-7c31-4b63-a075-260e31b8684c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-tracking-codes.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-tracking-codes.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,7 +73,7 @@
       <workItem from="1571078519061" duration="46000" />
       <workItem from="1582334305142" duration="2951000" />
       <workItem from="1583175404375" duration="227000" />
-      <workItem from="1583176026827" duration="616000" />
+      <workItem from="1583176026827" duration="1551000" />
     </task>
     <servers />
   </component>

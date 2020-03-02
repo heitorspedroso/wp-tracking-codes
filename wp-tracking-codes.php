@@ -3,7 +3,7 @@
 Plugin Name: Wp Tracking Codes
 Plugin URI:  https://br.wordpress.org/plugins/wp-tracking-codes/
 Description: Centralize os códigos de acompanhamento em apenas um lugar. Suporte: Google Analytics, Google Adwords Remarketing, Facebook Pixel Code, Google Tag Manager, DataLayer Google Tag Manager for Woocommerce
-Version:     1.3.2
+Version:     1.3.3
 Author:      Heitor Pedroso
 Author URI:  https://profiles.wordpress.org/heitor_tito
 License:     GPL2
@@ -22,7 +22,7 @@ if(!class_exists('Wp_Tracking_Codes')):
          *
          * @var string
          */
-        const VERSION = '1.3.2';
+        const VERSION = '1.3.3';
         /**
          * Instance of this class.
          *
