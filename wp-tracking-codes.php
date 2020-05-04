@@ -2,8 +2,8 @@
 /*
 Plugin Name: Wp Tracking Codes
 Plugin URI:  https://br.wordpress.org/plugins/wp-tracking-codes/
-Description: Centralize os códigos de acompanhamento em apenas um lugar. Suporte: Google Analytics, Google Adwords Remarketing, Facebook Pixel Code, Google Tag Manager, DataLayer Google Tag Manager for Woocommerce
-Version:     1.3.3
+Description: The tracking codes in one place. Support: Google Analytics, Google Adwords Remarketing, Google Tag Manager, DataLayer Google Tag Manager for WooCommerce, Google Merchant Customer Reviews for WooCommerce, Facebook Pixel Code
+Version:     1.4.0
 Author:      Heitor Pedroso
 Author URI:  https://profiles.wordpress.org/heitor_tito
 License:     GPL2
@@ -22,7 +22,7 @@ if(!class_exists('Wp_Tracking_Codes')):
          *
          * @var string
          */
-        const VERSION = '1.3.3';
+        const VERSION = '1.4.0';
         /**
          * Instance of this class.
          *
@@ -95,6 +95,7 @@ if(!class_exists('Wp_Tracking_Codes')):
         private function includes() {
             include_once 'includes/class-register-codes.php';
             include_once 'includes/class-render-data-layer-gtm.php';
+            include_once 'includes/class-render-google-merchant.php';
         }
         /**
          * Debug
@@ -110,7 +111,7 @@ if(!class_exists('Wp_Tracking_Codes')):
         }
         public function hook_analytics(){
             $this->options = get_option( 'tracking_option' );
-            if( empty( $this->options['tracking_option']['analytics'] ) && !empty( $this->options['analytics'] ) )
+            if( isset( $this->options['analytics'] ) && !empty( $this->options['analytics'] ) )
                 if($analytics = $this->options['analytics']):
                     echo "
             <!-- Google Analytics Tag -->
@@ -130,7 +131,7 @@ if(!class_exists('Wp_Tracking_Codes')):
         }
         public function hook_analytics_remarketing(){
             $this->options = get_option( 'tracking_option' );
-            if( empty( $this->options['tracking_option']['analytics_remarketing'] ) && !empty( $this->options['analytics_remarketing'] ) )
+            if( isset( $this->options['analytics_remarketing'] ) && !empty( $this->options['analytics_remarketing'] ) )
                 if($analytics_remarketing = $this->options['analytics_remarketing']):
                     echo '
             <!-- Google Remarketing Tag -->
@@ -154,7 +155,7 @@ if(!class_exists('Wp_Tracking_Codes')):
         }
         public function hook_facebook_pixel_code(){
             $this->options = get_option( 'tracking_option' );
-            if( empty( $this->options['tracking_option']['facebook_pixel_code'] ) && !empty( $this->options['facebook_pixel_code'] ) )
+            if( isset( $this->options['facebook_pixel_code'] ) && !empty( $this->options['facebook_pixel_code'] ) )
                 if($facebook_pixel_code = $this->options['facebook_pixel_code']):
                     echo "
             <!-- Facebook Pixel Code -->
@@ -182,7 +183,7 @@ if(!class_exists('Wp_Tracking_Codes')):
 
         public function hook_google_tag_manager_head(){
             $this->options = get_option('tracking_option');
-            if (empty($this->options['tracking_option']['google_tag_manager']) && !empty($this->options['google_tag_manager']))
+            if ( isset( $this->options['google_tag_manager'] ) && !empty($this->options['google_tag_manager']))
                 if ($google_tag_manager = $this->options['google_tag_manager']) :
                     echo "
                 <!-- Google Tag Manager -->
@@ -198,7 +199,7 @@ if(!class_exists('Wp_Tracking_Codes')):
 
         public function hook_google_tag_manager_body($classes){
             $this->options = get_option( 'tracking_option' );
-            if( empty( $this->options['tracking_option']['google_tag_manager'] ) && !empty( $this->options['google_tag_manager'] ) )
+            if( isset( $this->options['google_tag_manager'] ) && !empty( $this->options['google_tag_manager'] ) )
                 if($google_tag_manager = $this->options['google_tag_manager']):
                     $content = ob_get_clean();
                     $code_tag = "

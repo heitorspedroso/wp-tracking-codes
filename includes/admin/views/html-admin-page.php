@@ -13,6 +13,33 @@ if ( ! defined( 'ABSPATH' ) ) {
     .form-table{
         clear:none !important;
     }
+    .title-section{
+        position: relative;
+        display: inline-block;
+    }
+    .title-section:after{
+        content:'NEW';
+        background: yellow;
+        padding: 5px;
+        color:#000;
+        font-weight: bold;
+        position: absolute;
+        right: -48px;
+        top: -5px;
+    }
+    .status{
+        display: inline-block;
+        position: relative;
+        top: -10px;
+        left: 0px;
+    }
+    .status .dashicons{
+        font-size: 40px;
+        color:green;
+    }
+    #google_merchant_estimative_delivery_days{
+        text-align: right;
+    }
 </style>
 <div class="wrap">
     <form method="POST" action="options.php">
@@ -32,7 +59,6 @@ if ( ! defined( 'ABSPATH' ) ) {
                             <a class="sm_button sm_pluginHome" target="_blank" href="https://wordpress.org/support/plugin/wp-tracking-codes/">Support Plugin</a><br><br>
                             <a class="sm_button sm_pluginHome" target="_blank" href="https://wordpress.org/plugins/wp-tracking-codes/">Page Plugin</a><br><br>
                             <a class="sm_button sm_pluginHome" target="_blank" href="https://profiles.wordpress.org/heitor_tito/">Author Plugin</a><br><br>
-                            <a class="sm_button sm_pluginHome" target="_blank" href="https://github.com/heitorspedroso/wp-tracking-codes">Contribute in repository GitHub</a><br><br>
                         </div>
                     </div>
                 </div>
@@ -53,6 +79,14 @@ if ( ! defined( 'ABSPATH' ) ) {
                             </div>
                         </div>
                     </div>
+                    <!--                    <div class="meta-box-sortabless">-->
+                    <!--                        <div id="sm_rebuild" class="postbox">-->
+                    <!--                            <h3 class="hndle"><span>Add-ons</span></h3>-->
+                    <!--                            <div class="inside">-->
+                    <!--                                <p class="submit"><a class="button button-primary">DATA LAYER ENHANCED ECOMMERCE FOR WOOOCOMERCE</a></p>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
                 </div>
             </div>
         </div>

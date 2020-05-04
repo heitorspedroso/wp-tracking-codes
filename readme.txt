@@ -1,30 +1,23 @@
 === Wp Tracking Codes ===
 Contributors: Heitor_tito
 Donate link: https://profiles.wordpress.org/heitor_tito
-Tags: tracking codes, analytics ua, pixel code, remarketing tag, datalayer, google tag manager, analytics, adwords, woocommerce
+Tags: tracking codes, ua, analytics, ads, datalayer, google, google merchant, tag manager, google tag manager, analytics, adwords, facebook pixel
 Requires at least: 5.0
-Tested up to: 5.3.2
-Stable tag: 1.3.3
+Tested up to: 5.4.1
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-The tracking codes in one place. Support: Google Analytics, Google Adwords Remarketing, Google Tag Manager, DataLayer Google Tag Manager for Woocommerce, Facebook Pixel Code
+The tracking codes in one place. Support: Google Analytics, Google Adwords Remarketing, Google Tag Manager, DataLayer Google Tag Manager for WooCommerce, Google Merchant Customer Reviews for WooCommerce, Facebook Pixel Code
 
 == Description ==
 
-The tracking codes in one place. Support: Google Analytics, Google Adwords Remarketing, Google Tag Manager, DataLayer Google Tag Manager for Woocommerce, Facebook Pixel Code
+The tracking codes in one place.
+Support: Google Analytics, Google Adwords Remarketing, Google Tag Manager, DataLayer Google Tag Manager for WooCommerce, Google Merchant Customer Reviews for WooCommerce, Facebook Pixel Code
 
-= Contribute =
+= Compatibility =
 
-You can contribute to the source code in our [GitHub](https://github.com/heitorspedroso/) page.
-
-### Descrição em Português: ###
-
-Centralize os códigos de acompanhamento em apenas um lugar. Suporte: Google Analytics, Google Adwords Remarketing, Google Tag Manager, DataLayer Google Tag Manager for Woocommerce, Facebook Pixel Code
-
-= Compatibilidade =
-
-Compatível com a versão 5.3.2 Wordpress
+Compatible with Wordpress version 5.x
 
 
 == Installation ==
@@ -42,24 +35,13 @@ Compatível com a versão 5.3.2 Wordpress
 
 = What is needed to use this plugin? =
 
-* Wordpress 5.0 ou superior
-
-
-### FAQ em Português: ###
-
-= Qual é a licença do plugin? =
-
-Este plugin esta licenciado como GPL.
-
-= O que eu preciso para utilizar este plugin? =
-
-* Wordpress 5.0 ou superior
+* Wordpress 5.x
 
 == Screenshots ==
 
 1. Configurations screen plugin.
 2. Example GA and GTM activated.
-3. Google Tag Manager receiving DataLayer on purchase Store Woocomerce.
+3. Google Tag Manager receiving DataLayer on purchase Store WooCommerce.
 
 == Changelog ==
 
@@ -96,6 +78,9 @@ Este plugin esta licenciado como GPL.
 = 1.3.3 - 02/03/20 =
 * Version 1.3.3 DataLayer Standard Google Tag Manager update plugin svn
 
+= 1.4.0 - 27/04/20 =
+* Version 1.4.0 Google Merchant Customer Reviews for WooCommerce
+
 == Upgrade Notice ==
 
 = 1.0 - 04/07/16 =
@@ -130,3 +115,6 @@ Este plugin esta licenciado como GPL.
 
 = 1.3.3 - 02/03/20 =
 * Version 1.3.3 DataLayer Standard Google Tag Manager update plugin svn
+
+= 1.4.0 - 27/04/20 =
+* Version 1.4.0 Google Merchant Customer Reviews for WooCommerce

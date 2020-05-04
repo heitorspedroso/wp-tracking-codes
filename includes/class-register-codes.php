@@ -61,6 +61,12 @@ class RegisterCodes extends Wp_Tracking_Codes{
             array( $this, 'tracking_section_callback_function' ),
             'wp-tracking-codes'
         );
+        add_settings_section(
+            'google_merchant_section',
+            '',
+            array( $this, 'google_merchant_section_callback_function' ),
+            'wp-tracking-codes'
+        );
         // Add the field with the names and function to use for our new
         // settings, put it in our new section
         add_settings_field(
@@ -94,10 +100,24 @@ class RegisterCodes extends Wp_Tracking_Codes{
         // settings checkbox
         add_settings_field(
             'data_layer_google_tag_manager',
-            'DataLayer Google Tag Manager for Woocommerce',
+            'DataLayer Google Tag Manager',
             array( $this, 'data_layer_google_tag_manager_callback_function' ),
             'wp-tracking-codes',
-            'tracking_section'
+            'google_merchant_section'
+        );
+        add_settings_field(
+            'tracking_google_merchant',
+            'Google Merchant ID - Customer Reviews',
+            array( $this, 'tracking_google_merchant_callback_function' ),
+            'wp-tracking-codes',
+            'google_merchant_section'
+        );
+        add_settings_field(
+            'tracking_google_merchant_estimative_delivery_days',
+            'Google Merchant Estimative Delivery Days - Customer Reviews',
+            array( $this, 'tracking_google_merchant_estimative_delivery_days_callback_function' ),
+            'wp-tracking-codes',
+            'google_merchant_section'
         );
 
 
@@ -127,6 +147,10 @@ class RegisterCodes extends Wp_Tracking_Codes{
             $new_input['facebook_pixel_code'] = sanitize_text_field( $input['facebook_pixel_code'] );
         if( isset( $input['google_tag_manager'] ) )
             $new_input['google_tag_manager'] = sanitize_text_field( $input['google_tag_manager'] );
+        if( isset( $input['google_merchant'] ) )
+            $new_input['google_merchant'] = sanitize_text_field( $input['google_merchant'] );
+        if( isset( $input['google_merchant_estimative_delivery_days'] ) )
+            $new_input['google_merchant_estimative_delivery_days'] = sanitize_text_field( $input['google_merchant_estimative_delivery_days'] );
         if( isset( $input['data_layer_google_tag_manager'] ) )
             $new_input['data_layer_google_tag_manager'] = sanitize_text_field( $input['data_layer_google_tag_manager'] );
         return $new_input;
@@ -136,7 +160,14 @@ class RegisterCodes extends Wp_Tracking_Codes{
      */
     public function tracking_section_callback_function()
     {
-        //print 'Enter your settings below:';
+//        print 'For all:';
+    }
+    /**
+     * Print the Section text
+     */
+    public function google_merchant_section_callback_function()
+    {
+        print '<div class="title-section">Only Woocomerce:</div>';
     }
     /**
      * Get the settings option array and print one of its values
@@ -145,32 +176,61 @@ class RegisterCodes extends Wp_Tracking_Codes{
     {
         printf(
             '<input type="text" id="analytics" name="tracking_option[analytics]"/ value="%s">
+            <div class="status" title="Running"><span class="dashicons %s"></span></span></div>
              <p class="description">Example: UA-XXXXXXXX-X - <a href="https://support.google.com/analytics/answer/1032385" target="_blank">Help me</a></p>',
-            isset( $this->options['analytics'] ) ? esc_attr( $this->options['analytics']) : ''
+            isset( $this->options['analytics'] ) ? esc_attr( $this->options['analytics']) : '',
+            isset( $this->options['analytics'] ) && !empty($this->options['analytics']) ? 'dashicons-yes' : ''
         );
     }
     public function tracking_analytics_remarketing_callback_function()
     {
         printf(
             '<input type="text" id="analytics_remarketing" name="tracking_option[analytics_remarketing]"/ value="%s">
+            <div class="status" title="Running"><span class="dashicons %s"></span></span></div>
              <p class="description">Example: 123456789 - <a href="https://support.google.com/tagmanager/answer/6105160?hl=en&ref_topic=6334091" target="_blank">Help me</a></p>',
-            isset( $this->options['analytics_remarketing'] ) ? esc_attr( $this->options['analytics_remarketing']) : ''
+            isset( $this->options['analytics_remarketing'] ) ? esc_attr( $this->options['analytics_remarketing']) : '',
+            isset( $this->options['analytics_remarketing'] ) && !empty($this->options['analytics_remarketing']) ? 'dashicons-yes' : ''
         );
     }
     public function tracking_facebook_pixel_code_callback_function()
     {
         printf(
             '<input type="text" id="facebook_pixel_code" name="tracking_option[facebook_pixel_code]"/ value="%s">
+            <div class="status" title="Running"><span class="dashicons %s"></span></span></div>
              <p class="description">Example: 1234567890 - <a href="https://www.facebook.com/business/help/742478679120153/?ref=u2u" target="_blank">Help me</a></p>',
-            isset( $this->options['facebook_pixel_code'] ) ? esc_attr( $this->options['facebook_pixel_code']) : ''
+            isset( $this->options['facebook_pixel_code'] ) ? esc_attr( $this->options['facebook_pixel_code']) : '',
+            isset( $this->options['facebook_pixel_code'] ) && !empty($this->options['facebook_pixel_code']) ? 'dashicons-yes' : ''
         );
     }
     public function tracking_google_tag_manager_callback_function()
     {
         printf(
             '<input type="text" id="google_tag_manager" name="tracking_option[google_tag_manager]"/ value="%s">
-             <p class="description">Example: GTM-XXXXXX - <a href="https://support.google.com/tagmanager/answer/6103696" target="_blanl">Help me</a></p>',
-            isset( $this->options['google_tag_manager'] ) ? esc_attr( $this->options['google_tag_manager']) : ''
+            <div class="status" title="Running"><span class="dashicons %s"></span></span></div>
+             <p class="description">Example: GTM-XXXXXX - <a href="https://support.google.com/tagmanager/answer/6103696" target="_blank">Help me</a></p>',
+            isset( $this->options['google_tag_manager'] ) ? esc_attr( $this->options['google_tag_manager']) : '',
+            isset( $this->options['google_tag_manager'] ) && !empty($this->options['google_tag_manager']) ? 'dashicons-yes' : ''
+        );
+    }
+    public function tracking_google_merchant_callback_function()
+    {
+        printf(
+            '<input type="text" id="google_merchant" name="tracking_option[google_merchant]"/ value="%s">
+            <div class="status" title="Running"><span class="dashicons %s"></span></span></div>
+             <p class="description">Example: 123456789 - <a href="https://support.google.com/paymentscenter/answer/7163092?hl=en" target="_blank">Help me</a> <br/> This function activates <a href="https://support.google.com/merchants/answer/190657?hl=en" target="_blank">Seller ratings</a> on the purchase page. <a href="https://support.google.com/merchants/answer/7124018?hl=en&ref_topic=7105048" target="_blank">How it works?</a></p>',
+            isset( $this->options['google_merchant'] ) ? esc_attr( $this->options['google_merchant']) : '',
+            isset( $this->options['google_merchant'] ) && !empty($this->options['google_merchant']) && isset( $this->options['google_merchant_estimative_delivery_days'] ) && !empty($this->options['google_merchant_estimative_delivery_days']) ? 'dashicons-yes' : ''
+        );
+    }
+    public function tracking_google_merchant_estimative_delivery_days_callback_function()
+    {
+        printf(
+            '<input type="text" id="google_merchant_estimative_delivery_days" name="tracking_option[google_merchant_estimative_delivery_days]"/ value="%s"> days
+            <div class="status" title="Running"><span class="dashicons %s"></span></span></div>
+             <p class="description">Example: 9 - The estimated average <b>number</b> of delivery days for all orders</p>
+             <p class="description">This number added to the order day will be the date that Google will send the survey to the user\'s email, if user allows. <a href="https://support.google.com/merchants/answer/7106244?hl=en&ref_topic=7105160&visit_id=637233659345484301-2826177191&rd=1" target="_blank">How it works?</a></p>',
+            isset( $this->options['google_merchant_estimative_delivery_days'] ) ? esc_attr( $this->options['google_merchant_estimative_delivery_days']) : '',
+            isset( $this->options['google_merchant'] ) && !empty($this->options['google_merchant']) && isset( $this->options['google_merchant_estimative_delivery_days'] ) && !empty($this->options['google_merchant_estimative_delivery_days']) ? 'dashicons-yes' : ''
         );
     }
     public function data_layer_google_tag_manager_callback_function($args)
@@ -179,7 +239,7 @@ class RegisterCodes extends Wp_Tracking_Codes{
         $checked = ( isset($options['data_layer_google_tag_manager']) && $options['data_layer_google_tag_manager'] == 1) ? 1 : 0;
         printf(
             '<input type="checkbox" id="data_layer_google_tag_manager" name="tracking_option[data_layer_google_tag_manager]" value="1"' . checked( 1, $checked, false ) . '/>
-             <p class="description">Activate to use datalayer with <a href="https://support.google.com/tagmanager/answer/6107169?hl=en#standard-ecommerce" target="_blank">Standard Ecommerce (UA)</a> - <a href="https://support.google.com/tagmanager/answer/6164391?hl=en" target="_blanl">Help me</a></p>',
+             <p class="description">Activate to use datalayer with <a href="https://support.google.com/tagmanager/answer/6107169?hl=en#standard-ecommerce" target="_blank">Standard Ecommerce (UA)</a> - <a href="https://support.google.com/tagmanager/answer/6164391?hl=en" target="_blank">Help me</a></p>',
             isset( $this->options['data_layer_google_tag_manager'] ) ? esc_attr( $this->options['data_layer_google_tag_manager']) : ''
         );
 

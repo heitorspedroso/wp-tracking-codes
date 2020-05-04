@@ -20,7 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2114d484-7c31-4b63-a075-260e31b8684c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/includes/class-render-google-merchant.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/admin/views/html-admin-page.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/admin/views/html-admin-page.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/class-register-codes.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/class-register-codes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-tracking-codes.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-tracking-codes.php" afterDir="false" />
     </list>
@@ -35,21 +38,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="10" />
-    <option name="y" value="47" />
-    <option name="width" value="1330" />
-    <option name="height" value="708" />
-  </component>
   <component name="ProjectId" id="1SCrVLCRkSifPKEQ2h9WDFusUJ6" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../woocommerce/wp-content/plugins/wp-tracking-codes" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -73,7 +72,13 @@
       <workItem from="1571078519061" duration="46000" />
       <workItem from="1582334305142" duration="2951000" />
       <workItem from="1583175404375" duration="227000" />
-      <workItem from="1583176026827" duration="1551000" />
+      <workItem from="1583176026827" duration="2180000" />
+      <workItem from="1585963685040" duration="665000" />
+      <workItem from="1587162171776" duration="34000" />
+      <workItem from="1587169647195" duration="21000" />
+      <workItem from="1587772799783" duration="2647000" />
+      <workItem from="1588373654853" duration="1202000" />
+      <workItem from="1588596628539" duration="637000" />
     </task>
     <servers />
   </component>
@@ -93,9 +98,13 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="448" y="109" width="709" height="578" key="find.popup" timestamp="1582335418978">
+    <state x="463" y="155" width="424" height="491" key="FileChooserDialogImpl" timestamp="1587169664387">
       <screen x="0" y="27" width="1360" height="741" />
     </state>
-    <state x="448" y="109" width="709" height="578" key="find.popup/0.27.1360.741@0.27.1360.741" timestamp="1582335418978" />
+    <state x="463" y="155" width="424" height="491" key="FileChooserDialogImpl/0.27.1360.741@0.27.1360.741" timestamp="1587169664387" />
+    <state x="448" y="109" width="709" height="578" key="find.popup" timestamp="1587773179477">
+      <screen x="0" y="27" width="1360" height="741" />
+    </state>
+    <state x="448" y="109" width="709" height="578" key="find.popup/0.27.1360.741@0.27.1360.741" timestamp="1587773179477" />
   </component>
 </project>
