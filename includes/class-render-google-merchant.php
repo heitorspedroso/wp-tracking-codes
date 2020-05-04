@@ -37,12 +37,13 @@ class RenderGoogleMerchant extends Wp_Tracking_Codes{
 
     public function search_page_trigger(){
         $this->options = get_option( 'tracking_option' );
-        if( isset( $this->options['google_merchant'] ) && !empty( $this->options['google_merchant'] ) && isset( $this->options['google_merchant_estimative_delivery_days'] ) && !empty( $this->options['google_merchant_estimative_delivery_days'] ) )
+        if( isset( $this->options['google_merchant'] ) && !empty( $this->options['google_merchant'] ) && isset( $this->options['google_merchant_estimative_delivery_days'] ) && !empty( $this->options['google_merchant_estimative_delivery_days'] ) ):
             $google_merchant = $this->options['google_merchant'];
-        $google_merchant_estimative_delivery_days = $this->options['google_merchant_estimative_delivery_days'];
-        if(is_order_received_page()) {
-            $this->push_google_merchant_code($google_merchant,$google_merchant_estimative_delivery_days);
-        }
+            $google_merchant_estimative_delivery_days = $this->options['google_merchant_estimative_delivery_days'];
+            if(is_order_received_page()) {
+                $this->push_google_merchant_code($google_merchant,$google_merchant_estimative_delivery_days);
+            }
+        endif;
     }
 
     private function push_google_merchant_code($google_merchant,$google_merchant_estimative_delivery_days){

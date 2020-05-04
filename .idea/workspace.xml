@@ -20,12 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2114d484-7c31-4b63-a075-260e31b8684c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/includes/class-render-google-merchant.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/admin/views/html-admin-page.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/admin/views/html-admin-page.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/class-register-codes.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/class-register-codes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-tracking-codes.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-tracking-codes.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +73,8 @@
       <workItem from="1587169647195" duration="21000" />
       <workItem from="1587772799783" duration="2647000" />
       <workItem from="1588373654853" duration="1202000" />
-      <workItem from="1588596628539" duration="637000" />
+      <workItem from="1588596628539" duration="1559000" />
+      <workItem from="1588598274150" duration="165000" />
     </task>
     <servers />
   </component>

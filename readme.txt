@@ -4,7 +4,7 @@ Donate link: https://profiles.wordpress.org/heitor_tito
 Tags: tracking codes, ua, analytics, ads, datalayer, google, google merchant, tag manager, google tag manager, analytics, adwords, facebook pixel
 Requires at least: 5.0
 Tested up to: 5.4.1
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -81,6 +81,9 @@ Compatible with Wordpress version 5.x
 = 1.4.0 - 27/04/20 =
 * Version 1.4.0 Google Merchant Customer Reviews for WooCommerce
 
+= 1.4.1 - 27/04/20 =
+* Version 1.4.0 Google Merchant Customer update if error
+
 == Upgrade Notice ==
 
 = 1.0 - 04/07/16 =
@@ -118,3 +121,6 @@ Compatible with Wordpress version 5.x
 
 = 1.4.0 - 27/04/20 =
 * Version 1.4.0 Google Merchant Customer Reviews for WooCommerce
+
+= 1.4.1 - 27/04/20 =
+* Version 1.4.0 Google Merchant Customer update if error
