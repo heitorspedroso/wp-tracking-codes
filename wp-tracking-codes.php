@@ -2,10 +2,10 @@
 /*
 Plugin Name: Wp Tracking Codes
 Plugin URI:  https://br.wordpress.org/plugins/wp-tracking-codes/
-Description: The tracking codes in one place. Support: Google Analytics, Google Adwords Remarketing, Google Tag Manager, DataLayer Google Tag Manager for WooCommerce, Google Merchant Customer Reviews for WooCommerce, Facebook Pixel Code
-Version:     1.4.1
-Author:      Heitor Pedroso
-Author URI:  https://profiles.wordpress.org/heitor_tito
+Description: The tracking codes in one place. Support: Google Analytics, Google Analytics 4, Google Adwords Remarketing, Google ADS Remarketing, Google Tag Manager, DataLayer Google Tag Manager for WooCommerce, Google Merchant Customer Reviews for WooCommerce, Facebook Pixel Code
+Version:     1.5.0
+Author:      Array é Vida
+Author URI:  https://arrayevida.com.br/
 License:     GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Domain Path: /languages
@@ -22,7 +22,7 @@ if(!class_exists('Wp_Tracking_Codes')):
          *
          * @var string
          */
-        const VERSION = '1.4.1';
+        const VERSION = '1.5.0';
         /**
          * Instance of this class.
          *
@@ -41,6 +41,7 @@ if(!class_exists('Wp_Tracking_Codes')):
             $this->includes();
             //Load Tracking Analytics
             add_action( 'wp_head',  array( $this, 'hook_analytics' ) );
+            add_action( 'wp_head',  array( $this, 'hook_analytics_4' ) );
             //Load Tracking Analytics Remarketing
             add_action( 'wp_footer',  array( $this, 'hook_analytics_remarketing' ) );
             //Load Tracking Facebook ID
@@ -126,6 +127,24 @@ if(!class_exists('Wp_Tracking_Codes')):
 
             </script>
             <!-- Google Analytics Tag -->
+            ";
+                endif;
+        }
+
+        public function hook_analytics_4(){
+            $this->options = get_option( 'tracking_option' );
+            if( isset( $this->options['analytics_4'] ) && !empty( $this->options['analytics_4'] ) )
+                if($analytics_4 = $this->options['analytics_4']):
+                    echo "
+		            <!-- Global site tag (gtag.js) - Google Analytics -->
+					<script async src='https://www.googletagmanager.com/gtag/js?id=$analytics_4'></script>
+					<script>
+					 window.dataLayer = window.dataLayer || [];
+					  function gtag(){dataLayer.push(arguments);}
+					  gtag('js', new Date());
+					
+					  gtag('config', '$analytics_4');
+					</script>
             ";
                 endif;
         }

@@ -3,8 +3,8 @@ Contributors: Heitor_tito
 Donate link: https://profiles.wordpress.org/heitor_tito
 Tags: tracking codes, ua, analytics, ads, datalayer, google, google merchant, tag manager, google tag manager, analytics, adwords, facebook pixel
 Requires at least: 5.0
-Tested up to: 5.4.1
-Stable tag: 1.4.1
+Tested up to: 5.6
+Stable tag: 1.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,7 +55,7 @@ Compatible with Wordpress version 5.x
 * Insert Screenshot and Reviews
 
 = 1.0.3 - 19/02/18 =
-* Google Tag Support W3C Validation 
+* Google Tag Support W3C Validation
 
 = 1.0.4 - 19/02/18 =
 * Version 1.0.4 Stable
@@ -83,6 +83,9 @@ Compatible with Wordpress version 5.x
 
 = 1.4.1 - 27/04/20 =
 * Version 1.4.0 Google Merchant Customer update if error
+
+= 1.5.0 - 05/01/21 =
+* Version 1.5.0 Google Analytics 4 global tag
 
 == Upgrade Notice ==
 
@@ -96,7 +99,7 @@ Compatible with Wordpress version 5.x
 * Insert Screenshot and Reviews
 
 = 1.0.3 - 19/02/18 =
-* Google Tag Support W3C Validation 
+* Google Tag Support W3C Validation
 
 = 1.0.4 - 19/02/18 =
 * Version 1.0.4 Stable
@@ -124,3 +127,6 @@ Compatible with Wordpress version 5.x
 
 = 1.4.1 - 27/04/20 =
 * Version 1.4.0 Google Merchant Customer update if error
+
+= 1.5.0 - 05/01/21 =
+* Version 1.5.0 Google Analytics 4 global tag

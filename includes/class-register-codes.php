@@ -70,6 +70,13 @@ class RegisterCodes extends Wp_Tracking_Codes{
         // Add the field with the names and function to use for our new
         // settings, put it in our new section
         add_settings_field(
+            'tracking_analytics_4',
+            'Google Analytics 4 <div class="title-section"></div>',
+            array( $this, 'tracking_analytics4_callback_function' ),
+            'wp-tracking-codes',
+            'tracking_section'
+        );
+        add_settings_field(
             'tracking_analytics',
             'Google Analytics UA',
             array( $this, 'tracking_analytics_callback_function' ),
@@ -78,7 +85,7 @@ class RegisterCodes extends Wp_Tracking_Codes{
         );
         add_settings_field(
             'tracking_analytics_remarketing',
-            'Google Remarketing Conversion ID',
+            'Google ADS Remarketing Conversion ID',
             array( $this, 'tracking_analytics_remarketing_callback_function' ),
             'wp-tracking-codes',
             'tracking_section'
@@ -141,6 +148,8 @@ class RegisterCodes extends Wp_Tracking_Codes{
         $new_input = array();
         if( isset( $input['analytics'] ) )
             $new_input['analytics'] = sanitize_text_field( $input['analytics'] );
+        if( isset( $input['analytics_4'] ) )
+            $new_input['analytics_4'] = sanitize_text_field( $input['analytics_4'] );
         if( isset( $input['analytics_remarketing'] ) )
             $new_input['analytics_remarketing'] = sanitize_text_field( $input['analytics_remarketing'] );
         if( isset( $input['facebook_pixel_code'] ) )
@@ -167,7 +176,7 @@ class RegisterCodes extends Wp_Tracking_Codes{
      */
     public function google_merchant_section_callback_function()
     {
-        print '<div class="title-section">Only Woocomerce:</div>';
+        print '<div class="title-section-">Only Woocomerce:</div>';
     }
     /**
      * Get the settings option array and print one of its values
@@ -182,6 +191,19 @@ class RegisterCodes extends Wp_Tracking_Codes{
             isset( $this->options['analytics'] ) && !empty($this->options['analytics']) ? 'dashicons-yes' : ''
         );
     }
+
+    public function tracking_analytics4_callback_function()
+    {
+        printf(
+            '<input type="text" id="analytics_4" name="tracking_option[analytics_4]"/ value="%s">
+            <div class="status" title="Running"><span class="dashicons %s"></span></span></div>
+             <p class="description">Example: G-XXXXXXXXXX - <a href="https://support.google.com/analytics/answer/10089681" target="_blank">Help me</a></p>',
+            isset( $this->options['analytics_4'] ) ? esc_attr( $this->options['analytics_4']) : '',
+            isset( $this->options['analytics_4'] ) && !empty($this->options['analytics_4']) ? 'dashicons-yes' : ''
+        );
+    }
+
+
     public function tracking_analytics_remarketing_callback_function()
     {
         printf(
