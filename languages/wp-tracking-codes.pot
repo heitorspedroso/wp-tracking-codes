@@ -1,0 +1,153 @@
+# Copyright (C) 2021 Array é Vida
+# This file is distributed under the same license as the Wp Tracking Codes plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Wp Tracking Codes 1.6.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-tracking-codes\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-06-08T22:13:40-03:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: wp-tracking-codes\n"
+
+#. Plugin Name of the plugin
+msgid "Wp Tracking Codes"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://br.wordpress.org/plugins/wp-tracking-codes/"
+msgstr ""
+
+#. Description of the plugin
+msgid "The tracking codes in one place. Support: Google Analytics, Google Analytics 4, Google ADS Remarketing, Google Tag Manager, DataLayer Google Tag Manager for WooCommerce, Google Merchant Customer Reviews for WooCommerce, Facebook Pixel Code."
+msgstr ""
+
+#. Author of the plugin
+msgid "Array é Vida"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://arrayevida.com.br/"
+msgstr ""
+
+#: includes/admin/views/html-admin-page.php:58
+msgid "DataLayer Enhanced Ecommerce for your WooCommerce?"
+msgstr ""
+
+#: includes/admin/views/html-admin-page.php:61
+msgid "READ MORE"
+msgstr ""
+
+#: includes/admin/views/html-admin-page.php:70
+msgid "About this Plugin:"
+msgstr ""
+
+#: includes/admin/views/html-admin-page.php:74
+msgid "Send Your Review"
+msgstr ""
+
+#: includes/admin/views/html-admin-page.php:78
+msgid "Support Plugin"
+msgstr ""
+
+#: includes/admin/views/html-admin-page.php:79
+msgid "Page Plugin"
+msgstr ""
+
+#: includes/admin/views/html-admin-page.php:80
+msgid "Author Plugin"
+msgstr ""
+
+#: includes/admin/views/html-admin-page.php:90
+msgid "My Tracking Codes"
+msgstr ""
+
+#: includes/class-register-codes.php:34
+#: includes/class-register-codes.php:35
+msgid "WP Tracking Codes"
+msgstr ""
+
+#: includes/class-register-codes.php:179
+msgid "Only WooCommerce:"
+msgstr ""
+
+#. translators: %1$s: search term
+#: includes/class-register-codes.php:200
+msgid "Example: UA-XXXXXXXX-X - %1$s"
+msgstr ""
+
+#: includes/class-register-codes.php:204
+#: includes/class-register-codes.php:231
+#: includes/class-register-codes.php:258
+#: includes/class-register-codes.php:285
+#: includes/class-register-codes.php:312
+#: includes/class-register-codes.php:339
+#: includes/class-register-codes.php:357
+#: includes/class-register-codes.php:421
+msgid "Help me"
+msgstr ""
+
+#. translators: %1$s: search term
+#: includes/class-register-codes.php:227
+msgid "Example: G-XXXXXXXXXX - %1$s"
+msgstr ""
+
+#. translators: %1$s: search term
+#: includes/class-register-codes.php:254
+#: includes/class-register-codes.php:335
+msgid "Example: 123456789 - %1$s"
+msgstr ""
+
+#. translators: %1$s: search term
+#: includes/class-register-codes.php:281
+msgid "Example: 1234567890 - %1$s"
+msgstr ""
+
+#. translators: %1$s: search term
+#: includes/class-register-codes.php:308
+msgid "Example: GTM-XXXXXX - %1$s"
+msgstr ""
+
+#. translators: %1$s: search term
+#: includes/class-register-codes.php:344
+msgid "This function activates %1$s"
+msgstr ""
+
+#: includes/class-register-codes.php:348
+msgid "Seller ratings"
+msgstr ""
+
+#. translators: %1$s: search term
+#: includes/class-register-codes.php:353
+msgid " on the purchase page - %1$s"
+msgstr ""
+
+#: includes/class-register-codes.php:372
+msgid " days"
+msgstr ""
+
+#: includes/class-register-codes.php:379
+msgid "Example: 9 - The estimated average number of delivery days for all orders"
+msgstr ""
+
+#. translators: %1$s: search term
+#: includes/class-register-codes.php:386
+msgid "This number added to the order day will be the date that Google will send the survey to the user email, if user allows - %1$s"
+msgstr ""
+
+#: includes/class-register-codes.php:390
+msgid "How it works?"
+msgstr ""
+
+#. translators: %1$s: search term
+#: includes/class-register-codes.php:411
+msgid "Activate to use datalayer with %1$s"
+msgstr ""
+
+#: includes/class-register-codes.php:415
+msgid "Standard Ecommerce (UA)"
+msgstr ""

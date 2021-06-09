@@ -55,10 +55,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <div class="meta-box-sortabless ui-sortable" style="position:relative;">
                     <div id="sm_pnres" class="postbox" style="border: 5px dashed #ccd0d4;">
                         <div class="inside">
-                            <h3 class="hndle"><span>DataLayer Enhanced Ecommerce for your WooCommerce?</span></h3>
+                            <h3 class="hndle"><span><?php esc_html_e( 'DataLayer Enhanced Ecommerce for your WooCommerce?', 'wp-tracking-codes' ); ?></span></h3>
                             <br>
                             <a class="button activate-now button-primary" target="_blank" href="https://arrayevida.com.br/produto/datalayer-ecommerce-avancado-ua-para-woocommerce/?utm_source=adplugin&utm_medium=adplugin&utm_campaign=adplugintrackingcodesproduct&utm_term=adplugintrackingcodes" style="font-size:18px;display: block;text-align: center;">
-                                READ MORE
+                                <?php esc_html_e( 'READ MORE', 'wp-tracking-codes' ); ?>
                             </a>
                         </div>
                     </div>
@@ -67,17 +67,17 @@ if ( ! defined( 'ABSPATH' ) ) {
             <div class="inner-sidebar">
                 <div id="side-sortables" class="meta-box-sortabless ui-sortable" style="position:relative;">
                     <div id="sm_pnres" class="postbox">
-                        <h3 class="hndle"><span>About this Plugin:</span></h3>
+                        <h3 class="hndle"><span><?php esc_html_e( 'About this Plugin:', 'wp-tracking-codes' ); ?></span></h3>
                         <div class="inside">
                             <br>
                             <a class="button activate-now button-primary" target="_blank" href="https://wordpress.org/support/plugin/wp-tracking-codes/reviews/" style="font-size:18px;display: block;text-align: center;">
-                                Send Your Review
+                                <?php esc_html_e( 'Send Your Review', 'wp-tracking-codes' ); ?>
                             </a>
                             <br>
                             <br>
-                            <a class="sm_button sm_pluginHome" target="_blank" href="https://wordpress.org/support/plugin/wp-tracking-codes/">Support Plugin</a><br><br>
-                            <a class="sm_button sm_pluginHome" target="_blank" href="https://wordpress.org/plugins/wp-tracking-codes/">Page Plugin</a><br><br>
-                            <a class="sm_button sm_pluginHome" target="_blank" href="https://arrayevida.com.br/?utm_source=adplugin&utm_medium=adplugin&utm_campaign=adplugintrackingcodes&utm_term=adplugintrackingcodesauthor">Author Plugin</a><br><br>
+                            <a class="sm_button sm_pluginHome" target="_blank" href="https://wordpress.org/support/plugin/wp-tracking-codes/"><?php esc_html_e( 'Support Plugin', 'wp-tracking-codes' ); ?></a><br><br>
+                            <a class="sm_button sm_pluginHome" target="_blank" href="https://wordpress.org/plugins/wp-tracking-codes/"><?php esc_html_e( 'Page Plugin', 'wp-tracking-codes' ); ?></a><br><br>
+                            <a class="sm_button sm_pluginHome" target="_blank" href="https://arrayevida.com.br/?utm_source=adplugin&utm_medium=adplugin&utm_campaign=adplugintrackingcodes&utm_term=adplugintrackingcodesauthor"><?php esc_html_e( 'Author Plugin', 'wp-tracking-codes' ); ?></a><br><br>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <div class="meta-box-sortabless">
                         <!-- Rebuild Area -->
                         <div id="sm_rebuild" class="postbox">
-                            <h3 class="hndle"><span>My Tracking Codes</span></h3>
+                            <h3 class="hndle"><span><?php esc_html_e( 'My Tracking Codes', 'wp-tracking-codes' ); ?></span></h3>
                             <div class="inside">
                                 <?php //echo $options = get_option( 'tracking_analytics' ); ?>
                                 <?php settings_fields( 'wp-tracking-codes' );	//pass slug name of page, also referred
@@ -98,14 +98,6 @@ if ( ! defined( 'ABSPATH' ) ) {
                             </div>
                         </div>
                     </div>
-                    <!--                    <div class="meta-box-sortabless">-->
-                    <!--                        <div id="sm_rebuild" class="postbox">-->
-                    <!--                            <h3 class="hndle"><span>Add-ons</span></h3>-->
-                    <!--                            <div class="inside">-->
-                    <!--                                <p class="submit"><a class="button button-primary">DATA LAYER ENHANCED ECOMMERCE FOR WOOOCOMERCE</a></p>-->
-                    <!--                            </div>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
                 </div>
             </div>
         </div>

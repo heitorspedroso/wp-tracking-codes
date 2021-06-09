@@ -1,2 +1,16 @@
 # Wp Tracking Codes - WordPress Plugin
-Centralize os códigos de acompanhamento em apenas um lugar. Suporte: Google Analytics, Google Adwords Remarketing, Google Tag Manager, DataLayer Google Tag Manager for Woocommerce, Facebook Pixel Code.
+:us: - The tracking codes in one place.
+
+:brazil: - Códigos de acompanhamento em apenas um lugar.
+
+### Support
+* Google Analytics
+* Google Analytics 4
+* Google ADS Remarketing 
+* Google Tag Manager
+* DataLayer Google Tag Manager for WooCommerce
+* Google Merchant Customer Reviews for WooCommerce
+* Facebook Pixel Code.
+
+# Screen of Plugin
+![Screen of Plugin](screenshot-1.png)

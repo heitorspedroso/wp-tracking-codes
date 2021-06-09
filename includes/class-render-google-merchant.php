@@ -10,16 +10,24 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-class RenderGoogleMerchant extends Wp_Tracking_Codes{
+if ( ! class_exists( 'RenderGoogleMerchant' ) ) :
+	class RenderGoogleMerchant{
     /**
      * Holds the values to be used in the fields callbacks
      */
     private $options;
 
+	/**
+	 * Instance of this class.
+	 *
+	 * @var object
+	 */
+	protected static $instance = null;
+
     /**
      * Start up
      */
-    public function __construct()
+    private function __construct()
     {
         //Load Tracking Google Merchant Customer Reviews
         add_action( 'wp_footer',  array( $this, 'search_page_trigger' ) );
@@ -34,6 +42,20 @@ class RenderGoogleMerchant extends Wp_Tracking_Codes{
                 }
             endif;
     }
+
+	/**
+	 * Return an instance of this class.
+	 *
+	 * @return object A single instance of this class.
+	 */
+	public static function get_instance() {
+		// If the single instance hasn't been set, set it now.
+		if ( null === self::$instance ) {
+			self::$instance = new self();
+		}
+
+		return self::$instance;
+	}
 
     public function search_page_trigger(){
         $this->options = get_option( 'tracking_option' );
@@ -60,30 +82,25 @@ class RenderGoogleMerchant extends Wp_Tracking_Codes{
             $product_data = [];
             foreach ($order->get_items() as $item) {
                 $product_id  = $item->get_product_id();
-                $item_sku  =  get_post_meta( $product_id, '_sku', true );
                 $product_data[]  = [
-                    'gtin'      => $item_sku,
+                    'gtin'      => $product_id,
                 ];
             }
 
             $product_dataJson = json_encode($product_data);
 
-            echo '
-                <!-- BEGIN GCR Opt-in Module Code -->
-                <script src="https://apis.google.com/js/platform.js?onload=renderOptIn"
-                 async defer>
-                </script>
+            printf('<!-- BEGIN GCR Opt-in Module Code -->
+                <script src="https://apis.google.com/js/platform.js?onload=renderOptIn" async defer></script>
                 <script>
                  window.renderOptIn = function() {
                    window.gapi.load(\'surveyoptin\', function() {
                      window.gapi.surveyoptin.render(
                        {
-                         "merchant_id": '.$google_merchant.',
-                         "order_id": '.$transactionId.',
-                         "email": "'.$emailUser.'",
-                         "delivery_country": "'.$deliveryCountry.'",
-                         "estimated_delivery_date": "'.$date.'",
-                        "products": '.$product_dataJson.',
+                         "merchant_id": %s,
+                         "order_id": %s,
+                         "email": "%s",
+                         "delivery_country": "%s",
+                         "estimated_delivery_date": "%s",
                          "opt_in_style": "BOTTOM_LEFT_DIALOG"
                        });
                     });
@@ -96,8 +113,13 @@ class RenderGoogleMerchant extends Wp_Tracking_Codes{
                    lang: "'.$locale.'"               
                  };
                 </script>
-                <!-- END GCR Language Code -->
-            ';
+                <!-- END GCR Language Code -->',
+	            $google_merchant,
+	            $transactionId,
+	            $emailUser,
+	            $deliveryCountry,
+	            $date,
+	            $locale);
 
         }
 
@@ -113,15 +135,14 @@ class RenderGoogleMerchant extends Wp_Tracking_Codes{
 
     public function showAdminNotice()
     {
-        echo "<div class='notice notice-warning is-dismissible'>
+        printf("<div class='notice notice-warning is-dismissible'>
                 <p><b>Google Merchant Customer Reviews for Woocommerce</b> requires Woocommerce activated. <a href='/wp-admin/options-general.php?page=wp-tracking-codes&desativate_datalayer=true'>Disable function</a>.</p>
                 <button type='button' class='notice-dismiss'>
                     <span class='screen-reader-text'>Dismiss this notice.</span>
                 </button>
-            </div>";
+            </div>");
     }
 
 }
-
-
-$RenderGoogleMerchant = new RenderGoogleMerchant();
+	RenderGoogleMerchant::get_instance();
+endif;
