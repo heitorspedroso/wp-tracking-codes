@@ -55,9 +55,9 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <div class="meta-box-sortabless ui-sortable" style="position:relative;">
                     <div id="sm_pnres" class="postbox" style="border: 5px dashed #ccd0d4;">
                         <div class="inside">
-                            <h3 class="hndle"><span><?php esc_html_e( 'DataLayer Enhanced Ecommerce for your WooCommerce?', 'wp-tracking-codes' ); ?></span></h3>
+                            <h3 class="hndle"><span><?php esc_html_e( 'GTM, UA, GA4, ADS and Pixel Code for your WooCommerce?', 'wp-tracking-codes' ); ?></span></h3>
                             <br>
-                            <a class="button activate-now button-primary" target="_blank" href="https://arrayevida.com.br/produto/datalayer-ecommerce-avancado-ua-para-woocommerce/?utm_source=adplugin&utm_medium=adplugin&utm_campaign=adplugintrackingcodesproduct&utm_term=adplugintrackingcodes" style="font-size:18px;display: block;text-align: center;">
+                            <a class="button activate-now button-primary" target="_blank" href="https://woocommerce.com/products/datalayer-for-woocommerce/" style="font-size:18px;display: block;text-align: center;">
                                 <?php esc_html_e( 'READ MORE', 'wp-tracking-codes' ); ?>
                             </a>
                         </div>

@@ -3,7 +3,7 @@
 Plugin Name: Wp Tracking Codes
 Plugin URI:  https://br.wordpress.org/plugins/wp-tracking-codes/
 Description: The tracking codes in one place. Support: Google Analytics, Google Analytics 4, Google ADS Remarketing, Google Tag Manager, DataLayer Google Tag Manager for WooCommerce, Google Merchant Customer Reviews for WooCommerce, Facebook Pixel Code.
-Version:     1.6.0
+Version:     1.7.0
 Author:      Array é Vida
 Author URI:  https://arrayevida.com.br/
 License:     GPL2
@@ -22,7 +22,7 @@ if(!class_exists('Wp_Tracking_Codes')):
 		 *
 		 * @var string
 		 */
-		const VERSION = '1.6.0';
+		const VERSION = '1.7.0';
 		/**
 		 * Instance of this class.
 		 *
@@ -116,19 +116,16 @@ if(!class_exists('Wp_Tracking_Codes')):
 			if( isset( $this->options['analytics'] ) && !empty( $this->options['analytics'] ) ){
 				$analytics = $this->options['analytics'];
 					printf(
-						"<!-- Google Analytics Tag -->
-	            <script>
-	              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	
-	              ga('create', '%s', 'auto');
-	              ga('send', 'pageview');
-	
-	            </script>
-	            <!-- Google Analytics Tag -->"
-						,esc_attr($analytics));
+						"<!-- Global site tag (gtag.js) - Google Analytics -->
+				<script async src='https://www.googletagmanager.com/gtag/js?id=%s'></script>
+				<script>
+				 window.dataLayer = window.dataLayer || [];
+				  function gtag(){dataLayer.push(arguments);}
+				  gtag('js', new Date());
+				
+				  gtag('config', '%s');
+				</script>"
+						,esc_attr($analytics), esc_attr($analytics));
 			}
 		}
 

@@ -94,7 +94,7 @@ if ( ! class_exists( 'RegisterCodes' ) ) :
 			// settings, put it in our new section
 			add_settings_field(
 				'tracking_analytics_4',
-				'Google Analytics 4 <div class="title-section"></div>',
+				'Google Analytics 4',
 				array( $this, 'tracking_analytics4_callback_function' ),
 				'wp-tracking-codes',
 				'tracking_section'
