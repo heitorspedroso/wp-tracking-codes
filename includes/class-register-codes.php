@@ -92,23 +92,23 @@ if ( ! class_exists( 'RegisterCodes' ) ) :
 			);
 			// Add the field with the names and function to use for our new
 			// settings, put it in our new section
+            add_settings_field(
+                'tracking_google_tag_manager',
+                'Google Tag Manager ID',
+                array( $this, 'tracking_google_tag_manager_callback_function' ),
+                'wp-tracking-codes',
+                'tracking_section'
+            );
 			add_settings_field(
 				'tracking_analytics_4',
-				'Google Analytics 4',
+				'Google Analytics 4 (global tag)',
 				array( $this, 'tracking_analytics4_callback_function' ),
 				'wp-tracking-codes',
 				'tracking_section'
 			);
 			add_settings_field(
-				'tracking_analytics',
-				'Google Analytics UA',
-				array( $this, 'tracking_analytics_callback_function' ),
-				'wp-tracking-codes',
-				'tracking_section'
-			);
-			add_settings_field(
 				'tracking_analytics_remarketing',
-				'Google ADS Remarketing Conversion ID',
+				'Google ADS (global tag)',
 				array( $this, 'tracking_analytics_remarketing_callback_function' ),
 				'wp-tracking-codes',
 				'tracking_section'
@@ -120,21 +120,7 @@ if ( ! class_exists( 'RegisterCodes' ) ) :
 				'wp-tracking-codes',
 				'tracking_section'
 			);
-			add_settings_field(
-				'tracking_google_tag_manager',
-				'Google Tag Manager ID',
-				array( $this, 'tracking_google_tag_manager_callback_function' ),
-				'wp-tracking-codes',
-				'tracking_section'
-			);
 			// settings checkbox
-			add_settings_field(
-				'data_layer_google_tag_manager',
-				'DataLayer Google Tag Manager',
-				array( $this, 'data_layer_google_tag_manager_callback_function' ),
-				'wp-tracking-codes',
-				'google_merchant_section'
-			);
 			add_settings_field(
 				'tracking_google_merchant',
 				'Google Merchant ID - Customer Reviews',
@@ -149,6 +135,13 @@ if ( ! class_exists( 'RegisterCodes' ) ) :
 				'wp-tracking-codes',
 				'google_merchant_section'
 			);
+            add_settings_field(
+                'data_layer_google_tag_manager',
+                'DataLayer Google Tag Manager',
+                array( $this, 'data_layer_google_tag_manager_callback_function' ),
+                'wp-tracking-codes',
+                'google_merchant_section'
+            );
 
 
 			// Register our setting so that $_POST handling is done for us and
@@ -205,36 +198,6 @@ if ( ! class_exists( 'RegisterCodes' ) ) :
 
 		}
 
-		/**
-		 * Get the settings option array and print one of its values
-		 */
-		public function tracking_analytics_callback_function()
-		{
-			printf(
-				'<input type="text" id="analytics" name="tracking_option[analytics]"/ value="%s">',
-				isset( $this->options['analytics'] ) ? esc_attr( $this->options['analytics']) : ''
-			);
-			printf(
-				'<div class="status" title="Running"><span class="dashicons %s"></span></span></div>',
-				isset( $this->options['analytics'] ) && !empty($this->options['analytics']) ? 'dashicons-yes' : ''
-			);
-			printf(
-				'<p class="description">'
-			);
-			printf(
-			/* translators: %1$s: search term */
-				esc_html__( 'Example: UA-XXXXXXXX-X - %1$s', 'wp-tracking-codes' ),
-				sprintf(
-					'<a href="%s" target="_blank">%s</a>',
-					'https://support.google.com/analytics/answer/1032385',
-					esc_html__( 'Help me', 'wp-tracking-codes' )
-				)
-			);
-			printf(
-				'</p>'
-			);
-		}
-
 		public function tracking_analytics4_callback_function()
 		{
 			printf(
@@ -253,7 +216,7 @@ if ( ! class_exists( 'RegisterCodes' ) ) :
 				esc_html__( 'Example: G-XXXXXXXXXX - %1$s', 'wp-tracking-codes' ),
 				sprintf(
 					'<a href="%s" target="_blank">%s</a>',
-					'https://support.google.com/analytics/answer/10089681',
+					'https://developers.google.com/tag-platform/devguides/install-gtagjs#google-analytics',
 					esc_html__( 'Help me', 'wp-tracking-codes' )
 				)
 			);
@@ -277,10 +240,10 @@ if ( ! class_exists( 'RegisterCodes' ) ) :
 			);
 			printf(
 			/* translators: %1$s: search term */
-				esc_html__( 'Example: 123456789 - %1$s', 'wp-tracking-codes' ),
+				esc_html__( 'Example: AW-YYYYYY - %1$s', 'wp-tracking-codes' ),
 				sprintf(
 					'<a href="%s" target="_blank">%s</a>',
-					'https://support.google.com/tagmanager/answer/6105160?hl=en&ref_topic=6334091',
+					'https://developers.google.com/tag-platform/devguides/install-gtagjs#google-ads',
 					esc_html__( 'Help me', 'wp-tracking-codes' )
 				)
 			);

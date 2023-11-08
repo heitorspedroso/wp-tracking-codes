@@ -1,16 +1,26 @@
 <?php
-/*
-Plugin Name: Wp Tracking Codes
-Plugin URI:  https://br.wordpress.org/plugins/wp-tracking-codes/
-Description: The tracking codes in one place. Support: Google Analytics, Google Analytics 4, Google ADS Remarketing, Google Tag Manager, DataLayer Google Tag Manager for WooCommerce, Google Merchant Customer Reviews for WooCommerce, Facebook Pixel Code.
-Version:     1.7.0
-Author:      Array é Vida
-Author URI:  https://arrayevida.com.br/
-License:     GPL2
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Domain Path: /languages
-Text Domain: wp-tracking-codes
-*/
+/**
+ * Plugin Name: Wp Tracking Codes
+ * Plugin URI:  https://br.wordpress.org/plugins/wp-tracking-codes/
+ * Description: The tracking codes in one place. Support: Google Tag Manager, Google Analytics 4 Global Tag, Google ADS Remarketing Global Tag, Google Merchant Customer Reviews for WooCommerce, Facebook Pixel Code.
+ * Version:     1.8.0
+ * Requires at least: 5.2.0
+ * Tested up to: 6.3.2
+ * Requires PHP:      7.2
+ * Author:      Array.codes
+ * Author URI:  https://array.codes
+ * Developer: Heitor Sousa
+ * Developer URI: https://array.codes/
+ * Domain Path: /languages
+ * Text Domain: wp-tracking-codes
+ *
+ *  WC requires at least: 4.8.0
+ *  WC tested up to: 8.2.1
+ *
+ * License: GPLv2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ */
 if(!defined('ABSPATH')){
 	exit;
 }
@@ -22,7 +32,7 @@ if(!class_exists('Wp_Tracking_Codes')):
 		 *
 		 * @var string
 		 */
-		const VERSION = '1.7.0';
+		const VERSION = '1.8.0';
 		/**
 		 * Instance of this class.
 		 *
@@ -40,7 +50,6 @@ if(!class_exists('Wp_Tracking_Codes')):
 			//Load includes
 			$this->includes();
 			//Load Tracking Analytics
-			add_action( 'wp_head',  array( $this, 'hook_analytics' ) );
 			add_action( 'wp_head',  array( $this, 'hook_analytics_4' ) );
 			//Load Tracking Analytics Remarketing
 			add_action( 'wp_footer',  array( $this, 'hook_analytics_remarketing' ) );
@@ -50,6 +59,7 @@ if(!class_exists('Wp_Tracking_Codes')):
 			add_action('wp_head', array($this, 'hook_google_tag_manager_head'));
 			add_filter('template_include', array( $this, 'custom_include' ),0 );
 			add_filter('wp_body_open', array( $this, 'hook_google_tag_manager_body' ),0);
+            add_action( 'before_woocommerce_init', array( $this, 'declare_compatibility_hpos') );
 		}
 		/**
 		 * Return an instance of this class.
@@ -111,24 +121,6 @@ if(!class_exists('Wp_Tracking_Codes')):
 			}
 		}
 
-		public function hook_analytics(){
-			$this->options = get_option( 'tracking_option' );
-			if( isset( $this->options['analytics'] ) && !empty( $this->options['analytics'] ) ){
-				$analytics = $this->options['analytics'];
-					printf(
-						"<!-- Global site tag (gtag.js) - Google Analytics -->
-				<script async src='https://www.googletagmanager.com/gtag/js?id=%s'></script>
-				<script>
-				 window.dataLayer = window.dataLayer || [];
-				  function gtag(){dataLayer.push(arguments);}
-				  gtag('js', new Date());
-				
-				  gtag('config', '%s');
-				</script>"
-						,esc_attr($analytics), esc_attr($analytics));
-			}
-		}
-
 		public function hook_analytics_4(){
 			$this->options = get_option( 'tracking_option' );
 			if( isset( $this->options['analytics_4'] ) && !empty( $this->options['analytics_4'] ) ){
@@ -150,27 +142,20 @@ if(!class_exists('Wp_Tracking_Codes')):
 
 		public function hook_analytics_remarketing() {
 			$this->options = get_option( 'tracking_option' );
-			if ( isset( $this->options['analytics_remarketing'] ) && ! empty( $this->options['analytics_remarketing'] ) ){
-					$analytics_remarketing = $this->options['analytics_remarketing'];
-					printf('
-					            <!-- Google Remarketing Tag -->
-					            <script type="text/javascript">
-					            /* <![CDATA[ */
-					            var google_conversion_id = %s;
-					            var google_custom_params = window.google_tag_params;
-					            var google_remarketing_only = true;
-					            /* ]]> */
-					            </script>
-					            <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
-					            <noscript>
-					              <div style="display:inline;">
-					                    <img height="1" width="1" style="border-style:none;" alt=""
-					                    src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/%s/?value=0&amp;guid=ON&amp;script=0"/>
-					              </div>
-					            </noscript>
-					            <!-- Google Remarketing Tag -->
-            		',esc_attr($analytics_remarketing),esc_attr($analytics_remarketing));
-			}
+            if( isset( $this->options['analytics_remarketing'] ) && !empty( $this->options['analytics_remarketing'] ) ){
+                $analytics_remarketing = $this->options['analytics_remarketing'];
+                printf("
+			           <!-- Global site tag (gtag.js) - Google Ads -->
+						<script async src='https://www.googletagmanager.com/gtag/js?id=%s'></script>
+						<script>
+						 window.dataLayer = window.dataLayer || [];
+						  function gtag(){dataLayer.push(arguments);}
+						  gtag('js', new Date());
+						
+						  gtag('config', '%s');
+						</script>
+	            ", esc_attr($analytics_remarketing), esc_attr($analytics_remarketing));
+            }
 		}
 
 		public function hook_facebook_pixel_code() {
@@ -230,6 +215,16 @@ if(!class_exists('Wp_Tracking_Codes')):
 				);
 			}
 		}
+
+        /**
+         * Declare_compatibility_hpos
+         */
+        public function declare_compatibility_hpos() {
+            if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+                \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', 'wp-tracking-codes/wp-tracking-codes.php', true );
+                \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'cart_checkout_blocks', 'wp-tracking-codes/wp-tracking-codes.php', true );
+            }
+        }
 	}
 	add_action( 'plugins_loaded', array( 'Wp_Tracking_Codes', 'get_instance' ) );
 endif;

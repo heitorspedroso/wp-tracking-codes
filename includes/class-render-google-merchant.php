@@ -83,43 +83,43 @@ if ( ! class_exists( 'RenderGoogleMerchant' ) ) :
             foreach ($order->get_items() as $item) {
                 $product_id  = $item->get_product_id();
                 $product_data[]  = [
-                    'gtin'      => $product_id,
+                    'gtin'      => strval($product_id),
                 ];
             }
 
-            $product_dataJson = json_encode($product_data);
-
             printf('<!-- BEGIN GCR Opt-in Module Code -->
-                <script src="https://apis.google.com/js/platform.js?onload=renderOptIn" async defer></script>
-                <script>
-                 window.renderOptIn = function() {
-                   window.gapi.load(\'surveyoptin\', function() {
-                     window.gapi.surveyoptin.render(
-                       {
-                         "merchant_id": %s,
-                         "order_id": %s,
-                         "email": "%s",
-                         "delivery_country": "%s",
-                         "estimated_delivery_date": "%s",
-                         "opt_in_style": "BOTTOM_LEFT_DIALOG"
-                       });
-                    });
-                 }
-                </script>
-                <!-- END GCR Opt-in Module Code -->
-                <!-- BEGIN GCR Language Code -->
-                <script>
-                 window.___gcfg = {                
-                   lang: "'.$locale.'"               
-                 };
-                </script>
-                <!-- END GCR Language Code -->',
-	            $google_merchant,
-	            $transactionId,
-	            $emailUser,
-	            $deliveryCountry,
-	            $date,
-	            $locale);
+    <script src="https://apis.google.com/js/platform.js?onload=renderOptIn" async defer></script>
+    <script>
+        window.renderOptIn = function() {
+            window.gapi.load(\'surveyoptin\', function() {
+                window.gapi.surveyoptin.render(
+                    %s
+                );
+            });
+        }
+    </script>
+    <!-- END GCR Opt-in Module Code -->
+    <!-- BEGIN GCR Language Code -->
+    <script>
+        window.___gcfg = {                
+            lang: %s
+        };
+    </script>
+    <!-- END GCR Language Code -->',
+                wp_json_encode(
+                    array(
+                        "merchant_id" => $google_merchant,
+                        "order_id" => $transactionId,
+                        "email" => $emailUser,
+                        "delivery_country" => $deliveryCountry,
+                        "estimated_delivery_date" => $date,
+                        "opt_in_style" => "BOTTOM_LEFT_DIALOG",
+                        "products" => $product_data,
+                    ),
+                    JSON_UNESCAPED_UNICODE
+                ),
+                wp_json_encode($locale, JSON_UNESCAPED_UNICODE)
+            );
 
         }
 
