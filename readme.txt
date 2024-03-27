@@ -3,8 +3,8 @@ Contributors: Heitor_tito, arraycodes
 Donate link: https://profiles.wordpress.org/heitor_tito
 Tags: tracking codes, gtm, ga4, ads, facebook
 Requires at least: 5.2.0
-Tested up to: 6.3.2
-Stable tag: 1.9.1
+Tested up to: 6.4.3
+Stable tag: 1.9.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,9 @@ Support: Google Tag Manager, Google Analytics 4 Global Tag, Google ADS Remarketi
 1. Configurations screen plugin.
 
 == Changelog ==
+
+= 1.9.2 - 2024-03-27 =
+* Support: Support -> WP 6.4.3 WC 8.7.0
 
 = 1.9.1 - 2024-03-27 =
 * Update: Contributors and short description

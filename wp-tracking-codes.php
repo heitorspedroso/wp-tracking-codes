@@ -3,7 +3,7 @@
  * Plugin Name: Wp Tracking Codes
  * Plugin URI:  https://br.wordpress.org/plugins/wp-tracking-codes/
  * Description: The tracking codes in one place. Support: GTM, GA4 Global Tag, ADS Remarketing Global Tag, Google Merchant Customer Reviews for WooCommerce, Facebook.
- * Version:     1.9.1
+ * Version:     1.9.2
  * Requires at least: 5.2.0
  * Tested up to: 6.4.3
  * Requires PHP:      7.2
@@ -32,7 +32,7 @@ if(!class_exists('Wp_Tracking_Codes')):
 		 *
 		 * @var string
 		 */
-		const VERSION = '1.9.1';
+		const VERSION = '1.9.2';
 		/**
 		 * Instance of this class.
 		 *
