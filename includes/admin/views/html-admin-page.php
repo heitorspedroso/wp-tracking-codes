@@ -2,7 +2,7 @@
 /**
  * Admin help message.
  *
- * @package WooCommerce_PagSeguro/Admin/Settings
+ * @package WpTrackingCodes
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -55,9 +55,9 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <div class="meta-box-sortabless ui-sortable" style="position:relative;">
                     <div id="sm_pnres" class="postbox" style="border: 5px dashed #ccd0d4;">
                         <div class="inside">
-                            <h3 class="hndle"><span><?php esc_html_e( 'GTM, GA4, ADS and Pixel Code for WooCommerce?', 'wp-tracking-codes' ); ?></span></h3>
+                            <h3 class="hndle"><span><?php esc_html_e( 'Datalayer for WooCommerce?', 'wp-tracking-codes' ); ?></span></h3>
                             <br>
-                            <a class="button activate-now button-primary" target="_blank" href="https://woocommerce.com/products/datalayer-for-woocommerce/" style="font-size:18px;display: block;text-align: center;">
+                            <a class="button activate-now button-primary" target="_blank" href="https://woo.com/products/datalayer-for-woocommerce/" style="font-size:18px;display: block;text-align: center;">
                                 <?php esc_html_e( 'READ MORE', 'wp-tracking-codes' ); ?>
                             </a>
                         </div>
@@ -77,7 +77,6 @@ if ( ! defined( 'ABSPATH' ) ) {
                             <br>
                             <a class="sm_button sm_pluginHome" target="_blank" href="https://wordpress.org/support/plugin/wp-tracking-codes/"><?php esc_html_e( 'Support Plugin', 'wp-tracking-codes' ); ?></a><br><br>
                             <a class="sm_button sm_pluginHome" target="_blank" href="https://wordpress.org/plugins/wp-tracking-codes/"><?php esc_html_e( 'Page Plugin', 'wp-tracking-codes' ); ?></a><br><br>
-                            <a class="sm_button sm_pluginHome" target="_blank" href="https://arrayevida.com.br/?utm_source=adplugin&utm_medium=adplugin&utm_campaign=adplugintrackingcodes&utm_term=adplugintrackingcodesauthor"><?php esc_html_e( 'Author Plugin', 'wp-tracking-codes' ); ?></a><br><br>
                         </div>
                     </div>
                 </div>

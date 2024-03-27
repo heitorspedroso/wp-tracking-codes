@@ -4,7 +4,7 @@ Donate link: https://profiles.wordpress.org/heitor_tito
 Tags: tracking codes, analytics, ads, datalayer, google, google merchant, tag manager, google tag manager, analytics, adwords, facebook pixel, ga4
 Requires at least: 5.2.0
 Tested up to: 6.3.2
-Stable tag: 1.8.0
+Stable tag: 1.9.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,10 @@ Support: Google Tag Manager, Google Analytics 4 Global Tag, Google ADS Remarketi
 1. Configurations screen plugin.
 
 == Changelog ==
+
+= 1.9.0 - 2024-03-27 =
+* Fix: PHP deprecated function options page
+* Support: Support -> WP 6.4.3 WC 8.7.0
 
 = 1.8.0 - 2023-11-07 =
 * New: Google Analytics 4 global tag
