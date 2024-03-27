@@ -1,7 +1,7 @@
 === Wp Tracking Codes ===
-Contributors: Heitor_tito, Array.codes
+Contributors: Heitor_tito, arraycodes
 Donate link: https://profiles.wordpress.org/heitor_tito
-Tags: tracking codes, analytics, ads, datalayer, google, google merchant, tag manager, google tag manager, analytics, adwords, facebook pixel, ga4
+Tags: tracking codes, gtm, ga4, ads, facebook
 Requires at least: 5.2.0
 Tested up to: 6.3.2
 Stable tag: 1.9.0
@@ -38,6 +38,9 @@ Support: Google Tag Manager, Google Analytics 4 Global Tag, Google ADS Remarketi
 1. Configurations screen plugin.
 
 == Changelog ==
+
+= 1.9.1 - 2024-03-27 =
+* Update: Contributors and short description
 
 = 1.9.0 - 2024-03-27 =
 * Fix: PHP deprecated function options page
