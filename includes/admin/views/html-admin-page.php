@@ -57,7 +57,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <div class="inside">
                             <h3 class="hndle"><span><?php esc_html_e( 'Datalayer for WooCommerce?', 'wp-tracking-codes' ); ?></span></h3>
                             <br>
-                            <a class="button activate-now button-primary" target="_blank" href="https://woo.com/products/datalayer-for-woocommerce/" style="font-size:18px;display: block;text-align: center;">
+                            <a class="button activate-now button-primary" target="_blank" href="https://woocommerce.com/products/datalayer-for-woocommerce/" style="font-size:18px;display: block;text-align: center;">
                                 <?php esc_html_e( 'READ MORE', 'wp-tracking-codes' ); ?>
                             </a>
                         </div>

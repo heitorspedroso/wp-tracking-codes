@@ -3,13 +3,13 @@ Contributors: Heitor_tito, arraycodes
 Donate link: https://profiles.wordpress.org/heitor_tito
 Tags: tracking codes, gtm, ga4, ads, facebook
 Requires at least: 5.2.0
-Tested up to: 6.4.3
-Stable tag: 1.9.2
+Tested up to: 6.6.2
+Stable tag: 1.9.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 The tracking codes in one place.
-Support: Google Tag Manager, Google Analytics 4 Global Tag, Google ADS Remarketing Global Tag, Google Merchant Customer Reviews for WooCommerce, Facebook Pixel Code.
+Support: Google Tag Manager, GA 4 Global Tag, Google ADS Remarketing Global Tag,Google Merchant Reviews,Facebook Pixel
 
 == Description ==
 
@@ -38,6 +38,9 @@ Support: Google Tag Manager, Google Analytics 4 Global Tag, Google ADS Remarketi
 1. Configurations screen plugin.
 
 == Changelog ==
+
+= 1.9.3 - 2024-10-29 =
+* Support: Support -> WP 6.6.2 WC 9.9.3
 
 = 1.9.2 - 2024-03-27 =
 * Support: Support -> WP 6.4.3 WC 8.7.0
